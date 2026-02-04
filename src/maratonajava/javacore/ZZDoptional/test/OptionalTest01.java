@@ -5,6 +5,7 @@ import java.util.Optional;
 
 public class OptionalTest01 {
     static void main(String[] args) {
+    //Optional evita o NullPointerException
         Optional<String> o1 = Optional.of("Aha uhu o DevDojo é foda");
         Optional<String> o2 = Optional.ofNullable(null);
 
