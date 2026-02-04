@@ -8,10 +8,11 @@ public class OptionalTest01 {
     //Optional evita o NullPointerException
         Optional<String> o1 = Optional.of("Aha uhu o DevDojo é foda");
         Optional<String> o2 = Optional.ofNullable(null);
+        Optional<String> o3 = Optional.empty();
 
         System.out.println(o1);
         System.out.println(o2);
-
+        System.out.println(o3);
         System.out.println("-----------------------------");
 
         Optional<String> nameOptional = Optional.ofNullable(findName("william"));
@@ -23,7 +24,7 @@ public class OptionalTest01 {
     private static String findName(String name){
         List<String> list = List.of("William","DevDojo");
         int i = list.indexOf(name);
-        if(i != 1){
+        if(i != -1){
             return list.get(i);
         }
         return null;
