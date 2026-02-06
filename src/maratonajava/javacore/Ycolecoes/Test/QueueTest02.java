@@ -7,7 +7,7 @@ import java.util.Queue;
 
 public class QueueTest02 {
     static void main(String[] args) {
-        Queue<Manga> mangas = new PriorityQueue<>(new MangaByPriceComparator().reversed());
+        Queue<Manga> mangas = new PriorityQueue<>(new MangaByPriceComparator());
         Manga manga1 = new Manga(5,"Attack on Titan",19.9);
         Manga manga2 = new Manga(1,"Berserk",9.5);
         Manga manga3 = new Manga(4,"Hellsing Ultimate",3.2);
