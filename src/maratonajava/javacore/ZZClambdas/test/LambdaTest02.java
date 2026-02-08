@@ -7,8 +7,8 @@ import java.util.function.Function;
 public class LambdaTest02 {
     static void main(String[] args) {
         List<String> strings = List.of("Luffy","Goku","Naruto","Ichigo");
-        System.out.println(returnLength(strings,(String s) -> s.length()));
-        System.out.println(returnLength(strings,(String s) -> s.toUpperCase()));
+        System.out.println(returnLength(strings,String::length));
+        System.out.println(returnLength(strings,String::toUpperCase));
 
 
     }
