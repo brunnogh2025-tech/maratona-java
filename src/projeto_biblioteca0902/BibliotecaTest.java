@@ -1,6 +1,7 @@
 package projeto_biblioteca0902;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -15,7 +16,8 @@ import java.util.stream.Stream;
 
 
 
-APRIMORAR BUSCA POR GENERO;
+
+ADICIONAR UM CAPITALIZE
 TRATAR AS EXCECOES
 
 
@@ -34,11 +36,11 @@ TRATAR AS EXCECOES
  */
 public class BibliotecaTest {
     private static List<Livro> repositorioDeLivros = new ArrayList<>(List.of(
-            new Livro("Percy Jackson","Fantasia"),
-            new Livro("Harry Potter","Fantasia"),
-            new Livro("O Exorcista","Terror"),
-            new Livro("Chapeuzinho Vermelho","Infantil"),
-            new Livro("Hamlet","Drama")
+            new Livro("PERCY JACKSON","FANTASIA"),
+            new Livro("HARRY POTTER","FANTASIA"),
+            new Livro("O EXORCISTA","TERROR"),
+            new Livro("CHAPEUZINHO VERMELHO","INFANTIL"),
+            new Livro("HAMLET","DRAMA")
     ));
     private static List<Livro> livrosEmprestados = new ArrayList<>();
     static void main(String[] args) {
@@ -63,50 +65,59 @@ public class BibliotecaTest {
                     System.out.println("Gênero: ");
                     String genero = teclado.nextLine();
 
+                    titulo = titulo.toUpperCase();
+                    genero = genero.toUpperCase();
                     repositorioDeLivros.add(new Livro(titulo, genero));
                 } else if (i == 2) {
                     repositorioDeLivros.stream().forEach(System.out::println);
                 } else if (i == 3) {
-                    System.out.println("Digite o nome do livro que voce quer: ");
+                    System.out.println("Digite o nome do livro que você quer: ");
                     String emprestaLivro = teclado.nextLine();
-                    if (repositorioDeLivros.stream()
-                            .anyMatch(l -> l.gettitulo().equals(emprestaLivro))) {
-                        repositorioDeLivros.stream().filter(l -> l.gettitulo().equals(emprestaLivro)).forEach(livro -> livrosEmprestados.add(livro));
-                        repositorioDeLivros.removeIf(l -> l.gettitulo().equals(emprestaLivro));
+                    String emprestaLivroUp = emprestaLivro.toUpperCase();
+                    if (repositorioDeLivros.stream().anyMatch(l -> l.gettitulo().equals(emprestaLivroUp))) {
+                        repositorioDeLivros.stream().filter(l -> l.gettitulo().equals(emprestaLivroUp)).forEach(livro -> livrosEmprestados.add(livro));
+                        repositorioDeLivros.removeIf(l -> l.gettitulo().equals(emprestaLivroUp));
                     } else {
-                        System.out.println("Nao temos este livro na biblioteca.");
+                        System.out.println("Não temos este livro na biblioteca.");
                     }
                 } else if (i == 4) {
                     System.out.println("Livro a ser devolvido: ");
                     String devolveLivro = teclado.nextLine();
-                    if (livrosEmprestados.stream().anyMatch(livro -> livro.gettitulo().equals(devolveLivro))) {
-                        livrosEmprestados.stream().filter(livro -> livro.gettitulo().equals(devolveLivro)).forEach(livro -> repositorioDeLivros.add(livro));
-                        livrosEmprestados.removeIf(livro -> livro.gettitulo().equals(devolveLivro));
+                    String devolveLivroUp = devolveLivro.toUpperCase();
+                    if (livrosEmprestados.stream().anyMatch(livro -> livro.gettitulo().equals(devolveLivroUp))) {
+                        livrosEmprestados.stream().filter(livro -> livro.gettitulo().equals(devolveLivroUp)).forEach(livro -> repositorioDeLivros.add(livro));
+                        livrosEmprestados.removeIf(livro -> livro.gettitulo().equals(devolveLivroUp));
                     } else {
-                        System.out.println("Voce nao pode devolver um livro que nao foi emprestado.");
+                        System.out.println("Voce não pode devolver um livro que não foi emprestado.");
                     }
                 } else if (i == 5) {
                     System.out.println("Qual livro deseja buscar? ");
                     String buscaLivro = teclado.nextLine();
-                    if (repositorioDeLivros.stream().anyMatch(livro -> livro.gettitulo().equals(buscaLivro))) {
-                        repositorioDeLivros.stream().filter(livro -> livro.gettitulo().equals(buscaLivro)).forEach(System.out::println);
+                    String buscaLivroUp = buscaLivro.toUpperCase();
+                    if (repositorioDeLivros.stream().anyMatch(livro -> livro.gettitulo().equals(buscaLivroUp))) {
+                        repositorioDeLivros.stream().filter(livro -> livro.gettitulo().equals(buscaLivroUp)).forEach(System.out::println);
                     } else {
-                        System.out.println("Este livro nao esta catalogado");
+                        System.out.println("Este livro não esta catalogado");
                     }
                 } else if (i == 6) {
-                    System.out.println("Qual o genero de livros a ser buscado?");
+                    System.out.println("Qual o gênero de livros a ser buscado?");
                     String buscaGenero = teclado.nextLine();
-                    if (repositorioDeLivros.stream().anyMatch(livro -> livro.getGenero().contains(buscaGenero))) {
-                        repositorioDeLivros.stream().filter(livro -> livro.getGenero().contains(buscaGenero)).forEach(System.out::println);
+                    String buscaGeneroUp = buscaGenero.toUpperCase();
+                    if (repositorioDeLivros.stream().anyMatch(livro -> livro.getGenero().contains(buscaGeneroUp))) {
+                        repositorioDeLivros.stream().filter(livro -> livro.getGenero().equals(buscaGeneroUp)).forEach(System.out::println);
                     } else {
-                        System.out.println("Nao ha livros catalogados com este genero");
+                        System.out.println("Não há livros catalogados com este gênero");
                     }
                 } else if (i == 7) {
                     System.out.println("Encerrando o programa...");
                     break;
+                } else {
+                    System.out.println("Inválido, só são permitidos números de 1 a 7.");
                 }
 
             }
+        } catch (InputMismatchException e) {
+            throw new InputMismatchException("Resposta inválida, voce não pode enviar um valor em texto ou decimal aonde pede uma resposta numérica inteira.");
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }

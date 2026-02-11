@@ -3,7 +3,9 @@ package projeto_biblioteca0902;
 import java.util.Objects;
 
 public class Livro {
+    // TODO adicionar o ID
     private String titulo;
+
     private String genero;
 
     public Livro(String titulo, String genero) {
