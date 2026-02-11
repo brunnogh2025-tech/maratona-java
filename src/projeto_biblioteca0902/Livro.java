@@ -5,8 +5,18 @@ import java.util.Objects;
 public class Livro {
     // TODO adicionar o ID
     private String titulo;
-
+    private Long id;
     private String genero;
+
+    public Livro(String titulo, String genero, Long id) {
+        this.titulo = titulo;
+        this.genero = genero;
+        this.id = id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Livro(String titulo, String genero) {
         this.titulo = titulo;
@@ -16,6 +26,8 @@ public class Livro {
     public String gettitulo() {
         return titulo;
     }
+
+    public Long getId() {return id;}
 
     public String getGenero() {
         return genero;
