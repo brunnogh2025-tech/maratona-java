@@ -1,22 +1,15 @@
 package projeto_biblioteca0902;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import static projeto_biblioteca0902.LivroControlador.executar;
 
-import static projeto_biblioteca0902.RepositorioLivro.repositorioDeLivros;
 
 /*
-ADICIONAR UM CAPITALIZE
+ADICIONAR UM CAPITALIZE(NECESSITA APRENDIZADO SOBRE StringBuilder)
+ADICIONAR O ATRIBUTO dataLancamento NA CLASSE Livro.java (NECESSITA DE APRENDIZADO SOBRE LocalDate, LocalTime E LocalDateTime)
  */
 public class Main {
-
-
     static void main(String[] args) {
-        LivroControlador.executar();
+        executar();
     }
 }
 

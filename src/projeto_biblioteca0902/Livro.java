@@ -7,6 +7,7 @@ public class Livro {
     private String titulo;
     private Long id;
     private String genero;
+    private Boolean emprestado = false;
 
     public Livro(String titulo, String genero, Long id) {
         this.titulo = titulo;
@@ -16,6 +17,10 @@ public class Livro {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setEmprestado(Boolean emprestado) {
+        this.emprestado = emprestado;
     }
 
     public Livro(String titulo, String genero) {
@@ -31,6 +36,10 @@ public class Livro {
 
     public String getGenero() {
         return genero;
+    }
+
+    public Boolean getEmprestado() {
+        return emprestado;
     }
 
     @Override
