@@ -37,17 +37,18 @@ public class Livro {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Livro livro = (Livro) o;
-        return Objects.equals(titulo, livro.titulo) && Objects.equals(genero, livro.genero);
+        return Objects.equals(titulo, livro.titulo) && Objects.equals(genero, livro.genero) && Objects.equals(id, livro.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(titulo, genero);
+        return Objects.hash(titulo, genero, id);
     }
 
     @Override
     public String toString() {
         return "titulo='" + titulo + '\'' +
-                ", genero='" + genero + '\'';
+                ", genero='" + genero + '\'' +
+                ", ID='" + id + '\'';
     }
 }

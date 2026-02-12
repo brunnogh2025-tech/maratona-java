@@ -12,15 +12,11 @@ import static projeto_biblioteca0902.RepositorioLivro.repositorioDeLivros;
 /*
 ADICIONAR UM CAPITALIZE
  */
-public class BibliotecaTest {
+public class Main {
 
 
     static void main(String[] args) {
-
-
-
-
-
+        LivroControlador.executar();
     }
 }
 

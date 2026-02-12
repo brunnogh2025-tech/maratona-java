@@ -1,9 +1,6 @@
 package projeto_biblioteca0902;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static projeto_biblioteca0902.RepositorioLivro.repositorioDeLivros;
 
@@ -33,9 +30,9 @@ public class LivroControlador {
 
                     String tituloUp = titulo.toUpperCase();
                     String generoUp = genero.toUpperCase();
-                    repositorioDeLivros.add(new Livro(titulo, genero));
+                    RepositorioLivro.save(new Livro(tituloUp,generoUp));
                 } else if (i == 2) {
-                    repositorioDeLivros.stream().forEach(System.out::println);
+                    repositorioDeLivros.stream().sorted(Comparator.comparing(Livro::getId)).forEach(System.out::println);
                 } else if (i == 3) {
                     System.out.println("Digite o nome do livro que você quer: ");
                     String emprestaLivro = teclado.nextLine();
@@ -51,7 +48,7 @@ public class LivroControlador {
                     String devolveLivro = teclado.nextLine();
                     String devolveLivroUp = devolveLivro.toUpperCase();
                     if (livrosEmprestados.stream().anyMatch(livro -> livro.gettitulo().equals(devolveLivroUp))) {
-                        livrosEmprestados.stream().filter(livro -> livro.gettitulo().equals(devolveLivroUp)).forEach(livro -> repositorioDeLivros.add(livro));
+                        livrosEmprestados.stream().filter(livro -> livro.gettitulo().equals(devolveLivroUp)).forEach(livro -> RepositorioLivro.save(livro));
                         livrosEmprestados.removeIf(livro -> livro.gettitulo().equals(devolveLivroUp));
                     } else {
                         System.out.println("Voce não pode devolver um livro que não foi emprestado.");

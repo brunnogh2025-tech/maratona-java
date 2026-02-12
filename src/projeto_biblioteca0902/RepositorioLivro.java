@@ -12,13 +12,11 @@ public class RepositorioLivro {
             new Livro("HAMLET","DRAMA",5L)
     ));
     static void save(Livro livro){
-        if (livro.getId() != null) {
-            if (repositorioDeLivros != null) {
-                livro.setId(repositorioDeLivros.getLast().getId() + 1);
-            } else {
-                livro.setId(1L);
-            }
-        repositorioDeLivros.add(livro);
+        if (repositorioDeLivros != null) {
+            livro.setId(repositorioDeLivros.getLast().getId() + 1);
+        } else {
+            livro.setId(1L);
         }
+        repositorioDeLivros.add(livro);
     }
 }
