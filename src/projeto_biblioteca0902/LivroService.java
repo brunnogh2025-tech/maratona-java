@@ -1,14 +1,17 @@
 package projeto_biblioteca0902;
 
+import java.time.LocalDate;
 import java.util.Comparator;
+import java.util.function.Function;
 
 import static projeto_biblioteca0902.RepositorioLivro.*;
 
-public class LivroService {
-    static void cadastro(String titulo, String genero) {
+public class LivroService implements Function {
+    static void cadastro(String titulo, String genero, String autor, int ano, int mes, int dia) {
         String tituloUp = titulo.toUpperCase();
         String generoUp = genero.toUpperCase();
-        saveRepositorio(new Livro(tituloUp, generoUp));
+        String autorUp = autor.toUpperCase();
+        saveRepositorio(new Livro(tituloUp, generoUp, autorUp, LocalDate.of(ano,mes,dia)));
     }
 
     static void listar() {
@@ -34,21 +37,20 @@ public class LivroService {
         }
     }
 
-    static void buscaTitulo(String title) {
-        String buscaLivroUp = title.toUpperCase();
-        if (getRepositorioDeLivros().stream().anyMatch(livro -> livro.gettitulo().equals(buscaLivroUp))) {
-            getRepositorioDeLivros().stream().filter(livro -> livro.gettitulo().equals(buscaLivroUp)).forEach(System.out::println);
+    static void busca(String busca, Function function) {
+        String buscaUp = busca.toUpperCase();
+        if (getRepositorioDeLivros().stream().anyMatch(livro -> function.apply(livro).equals(buscaUp))) {
+            getRepositorioDeLivros().stream().filter(livro -> function.apply(livro).equals(buscaUp)).forEach(System.out::println);
         } else {
             System.out.println("Este livro não esta catalogado");
         }
     }
-    static void buscaGenero(String title) {
 
-        String buscaGeneroUp = title.toUpperCase();
-        if (getRepositorioDeLivros().stream().anyMatch(livro -> livro.getGenero().contains(buscaGeneroUp))) {
-            getRepositorioDeLivros().stream().filter(livro -> livro.getGenero().equals(buscaGeneroUp)).forEach(System.out::println);
-        } else {
-            System.out.println("Não há livros catalogados com este gênero");
-        }
+    @Override
+    public Object apply(Object o) {
+        return null;
     }
 }
+
+
+

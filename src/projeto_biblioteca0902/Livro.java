@@ -1,19 +1,17 @@
 package projeto_biblioteca0902;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class Livro {
+public class Livro{
     // TODO adicionar o ID
     private String titulo;
     private Long id;
     private String genero;
+    private String autor;
+    private String dataLancamento;
     private Boolean emprestado = false;
-
-    public Livro(String titulo, String genero, Long id) {
-        this.titulo = titulo;
-        this.genero = genero;
-        this.id = id;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -23,9 +21,18 @@ public class Livro {
         this.emprestado = emprestado;
     }
 
-    public Livro(String titulo, String genero) {
+    public Livro(String titulo, String genero, String autor, LocalDate dataLancamento, Long id) {
         this.titulo = titulo;
         this.genero = genero;
+        this.autor = autor;
+        this.dataLancamento = dataLancamento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.id = id;
+    }
+    public Livro(String titulo, String genero, String autor, LocalDate dataLancamento) {
+        this.titulo = titulo;
+        this.genero = genero;
+        this.autor = autor;
+        this.dataLancamento = dataLancamento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     public String gettitulo() {
@@ -42,6 +49,10 @@ public class Livro {
         return emprestado;
     }
 
+    public String getDataLancamento() {return dataLancamento;}
+
+    public String getAutor() {return autor;}
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -56,8 +67,14 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "titulo='" + titulo + '\'' +
+        return "Livro{" +
+                "titulo='" + titulo + '\'' +
                 ", genero='" + genero + '\'' +
-                ", ID='" + id + '\'';
+                ", autor='" + autor + '\'' +
+                ", dataLancamento=" + dataLancamento +
+                ", id=" + id +
+                '}';
+
+
     }
 }

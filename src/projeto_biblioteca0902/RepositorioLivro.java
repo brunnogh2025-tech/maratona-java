@@ -1,15 +1,17 @@
 package projeto_biblioteca0902;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
-public class RepositorioLivro {
+public class RepositorioLivro implements Function {
     private static List<Livro> repositorioDeLivros = new ArrayList<>(List.of(
-            new Livro("PERCY JACKSON","FANTASIA",1L),
-            new Livro("HARRY POTTER","FANTASIA",2L),
-            new Livro("O EXORCISTA","TERROR",3L),
-            new Livro("CHAPEUZINHO VERMELHO","INFANTIL",4L),
-            new Livro("HAMLET","DRAMA",5L)
+            new Livro("PERCY JACKSON","FANTASIA","Rick Riodan", LocalDate.of(2005,7,1),1L),
+            new Livro("HARRY POTTER E A PEDRA FILOSOFAL","FANTASIA","", LocalDate.of(1997,6,26),2L),
+            new Livro("O EXORCISTA","TERROR","WILLIAM PETTER BLATTY",LocalDate.of(1971,5,5),3L),
+            new Livro("1984","DISTOPIA","GEORGE ORWELL",LocalDate.of(1949,6,8),4L),
+            new Livro("DOM QUIXOTE","ROMANCE","MIGUEL DE CERVANTES SAAVEDRA",LocalDate.of(1605,1,16),5L)
     ));
     private static List<Livro> livrosEmprestados = new ArrayList<>();
     public static List<Livro> getRepositorioDeLivros() {
@@ -38,6 +40,15 @@ public class RepositorioLivro {
     static void saveEmprestado(Livro livro){
         livro.setEmprestado(true);
         livrosEmprestados.add(livro);
+    }
+    static void busca(String busca, Function function){
+        String buscaUp = busca.toUpperCase();
+        String buscador = function.apply();
+        if (getRepositorioDeLivros().stream().anyMatch(livro -> function.apply(livro).equals(buscaUp))) {
+            getRepositorioDeLivros().stream().filter(livro -> function.apply(livro).equals(buscaUp)).forEach(System.out::println);
+        } else {
+            System.out.println("Este livro não esta catalogado");
+        }
     }
 
 }

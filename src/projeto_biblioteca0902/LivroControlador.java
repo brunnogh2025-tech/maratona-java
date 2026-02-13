@@ -3,6 +3,7 @@ package projeto_biblioteca0902;
 
 
 
+import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -32,7 +33,20 @@ public class LivroControlador {
 
                     System.out.println("Gênero: ");
                     String genero = teclado.nextLine();
-                    cadastro(titulo, genero);
+
+                    System.out.println("Autor: ");
+                    String autor = teclado.nextLine();
+
+                    System.out.println("Data de lancamento: ");
+                    System.out.println("Ano: ");
+                    int ano = teclado.nextInt();
+
+                    System.out.println("Mês: ");
+                    int mes = teclado.nextInt();
+
+                    System.out.println("Dia: ");
+                    int dia = teclado.nextInt();
+                    cadastro(titulo, genero, autor, ano, mes, dia);
 
                 } else if (i == 2) {
                     listar();
@@ -47,7 +61,7 @@ public class LivroControlador {
                 } else if (i == 5) {
                     System.out.println("Qual livro deseja buscar? ");
                     String buscaLivro = teclado.nextLine();
-                    buscaTitulo(buscaLivro);
+                    busca(buscaLivro,);
                 } else if (i == 6) {
                     System.out.println("Qual o gênero de livros a ser buscado?");
                     String buscaGenero = teclado.nextLine();
@@ -60,7 +74,7 @@ public class LivroControlador {
                 }
             }
         } catch (InputMismatchException e) {
-            throw new InputMismatchException("Resposta inválida, voce não pode enviar um valor em texto ou decimal aonde pede uma resposta numérica inteira.");
+            throw new InputMismatchException("Resposta inválida, voce não pode enviar um valor em texto/decimal aonde pede uma resposta numérica inteira.");
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
