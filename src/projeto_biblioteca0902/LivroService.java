@@ -6,7 +6,7 @@ import java.util.function.Function;
 
 import static projeto_biblioteca0902.RepositorioLivro.*;
 
-public class LivroService implements Function {
+public class LivroService{
     static void cadastro(String titulo, String genero, String autor, int ano, int mes, int dia) {
         String tituloUp = titulo.toUpperCase();
         String generoUp = genero.toUpperCase();
@@ -37,19 +37,23 @@ public class LivroService implements Function {
         }
     }
 
-    static void busca(String busca, Function function) {
+    static <R> void busca(String busca, BuscaLivro<R> buscaLivro) {
         String buscaUp = busca.toUpperCase();
-        if (getRepositorioDeLivros().stream().anyMatch(livro -> function.apply(livro).equals(buscaUp))) {
-            getRepositorioDeLivros().stream().filter(livro -> function.apply(livro).equals(buscaUp)).forEach(System.out::println);
+        if (getRepositorioDeLivros().stream().anyMatch(livro -> buscaLivro.busca(livro).equals(buscaUp))) {
+            getRepositorioDeLivros().stream().filter(livro -> buscaLivro.busca(livro).equals(buscaUp)).forEach(System.out::println);
+        } else {
+            System.out.println("Este livro não esta catalogado");
+        }
+    }
+    static <R> void buscaId(Long busca, BuscaLivro<R> buscaLivro) {
+        if (getRepositorioDeLivros().stream().anyMatch(livro -> buscaLivro.busca(livro).equals(busca))) {
+            getRepositorioDeLivros().stream().filter(livro -> buscaLivro.busca(livro).equals(busca)).forEach(System.out::println);
         } else {
             System.out.println("Este livro não esta catalogado");
         }
     }
 
-    @Override
-    public Object apply(Object o) {
-        return null;
-    }
+
 }
 
 
