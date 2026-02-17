@@ -8,10 +8,10 @@ import static projeto_biblioteca0902.RepositorioLivro.*;
 
 public class LivroService{
     static void cadastro(String titulo, String genero, String autor, int ano, int mes, int dia) {
-        String tituloUp = titulo.toUpperCase();
-        String generoUp = genero.toUpperCase();
-        String autorUp = autor.toUpperCase();
-        saveRepositorio(new Livro(tituloUp, generoUp, autorUp, LocalDate.of(ano,mes,dia)));
+        String tituloCap = capitalize(titulo);
+        String generoCap = capitalize(genero);
+        String autorCap = capitalize(autor);
+        saveRepositorio(new Livro(tituloCap, generoCap, autorCap, LocalDate.of(ano,mes,dia)));
     }
 
     static void listar() {
@@ -19,28 +19,28 @@ public class LivroService{
     }
 
     static void empresta(String title) {
-        String emprestaLivroUp = title.toUpperCase();
-        if (getRepositorioDeLivros().stream().anyMatch(l -> l.gettitulo().equals(emprestaLivroUp))) {
-            getRepositorioDeLivros().stream().filter(l -> l.gettitulo().equals(emprestaLivroUp)).forEach(livro -> saveEmprestado(livro));
-            getRepositorioDeLivros().removeIf(l -> l.gettitulo().equals(emprestaLivroUp));
+        String emprestaLivroCap = capitalize(title);
+        if (getRepositorioDeLivros().stream().anyMatch(l -> l.gettitulo().equals(emprestaLivroCap))) {
+            getRepositorioDeLivros().stream().filter(l -> l.gettitulo().equals(emprestaLivroCap)).forEach(livro -> saveEmprestado(livro));
+            getRepositorioDeLivros().removeIf(l -> l.gettitulo().equals(emprestaLivroCap));
         } else {
             System.out.println("Não temos este livro na biblioteca.");
         }
     }
     static void devolve(String title) {
-        String devolveLivroUp = title.toUpperCase();
-        if (getLivrosEmprestados().stream().anyMatch(livro -> livro.gettitulo().equals(devolveLivroUp))) {
-            getLivrosEmprestados().stream().filter(livro -> livro.gettitulo().equals(devolveLivroUp)).forEach(livro -> saveRepositorio(livro));
-            getLivrosEmprestados().removeIf(livro -> livro.gettitulo().equals(devolveLivroUp));
+        String devolveLivroCap = capitalize(title);
+        if (getLivrosEmprestados().stream().anyMatch(livro -> livro.gettitulo().equals(devolveLivroCap))) {
+            getLivrosEmprestados().stream().filter(livro -> livro.gettitulo().equals(devolveLivroCap)).forEach(livro -> saveRepositorio(livro));
+            getLivrosEmprestados().removeIf(livro -> livro.gettitulo().equals(devolveLivroCap));
         } else {
             System.out.println("Você não pode devolver um livro que não foi emprestado.");
         }
     }
 
     static <R> void busca(String busca, BuscaLivro<R> buscaLivro) {
-        String buscaUp = busca.toUpperCase();
-        if (getRepositorioDeLivros().stream().anyMatch(livro -> buscaLivro.busca(livro).equals(buscaUp))) {
-            getRepositorioDeLivros().stream().filter(livro -> buscaLivro.busca(livro).equals(buscaUp)).forEach(System.out::println);
+        String buscaCap = capitalize(busca);
+        if (getRepositorioDeLivros().stream().anyMatch(livro -> buscaLivro.busca(livro).equals(buscaCap))) {
+            getRepositorioDeLivros().stream().filter(livro -> buscaLivro.busca(livro).equals(buscaCap)).forEach(System.out::println);
         } else {
             System.out.println("Este livro não esta catalogado");
         }
@@ -51,6 +51,12 @@ public class LivroService{
         } else {
             System.out.println("Este livro não esta catalogado");
         }
+    }
+    static String capitalize(String str){
+        if(str == null || str.isEmpty()){
+            return str;
+        }
+        return str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase();
     }
 
 

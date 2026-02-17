@@ -7,11 +7,11 @@ import java.util.function.Function;
 
 public class RepositorioLivro{
     private static List<Livro> repositorioDeLivros = new ArrayList<>(List.of(
-            new Livro("PERCY JACKSON","FANTASIA","Rick Riodan", LocalDate.of(2005,7,1),1L),
-            new Livro("HARRY POTTER E A PEDRA FILOSOFAL","FANTASIA","", LocalDate.of(1997,6,26),2L),
-            new Livro("O EXORCISTA","TERROR","WILLIAM PETTER BLATTY",LocalDate.of(1971,5,5),3L),
-            new Livro("1984","DISTOPIA","GEORGE ORWELL",LocalDate.of(1949,6,8),4L),
-            new Livro("DOM QUIXOTE","ROMANCE","MIGUEL DE CERVANTES SAAVEDRA",LocalDate.of(1605,1,16),5L)
+            new Livro("Percy Jackson","Fantasia","Rick Riodan", LocalDate.of(2005,7,1),1L),
+            new Livro("Harry Potter e a Pedra Filosofal","Fantasia","Joanne Rowling", LocalDate.of(1997,6,26),2L),
+            new Livro("O Exorcista","Terror","William Petter Blatty",LocalDate.of(1971,5,5),3L),
+            new Livro("1984","Distopia","George Orwell",LocalDate.of(1949,6,8),4L),
+            new Livro("Dom Quixote","Romance","Miguel de Cervantes Saavedra",LocalDate.of(1605,1,16),5L)
     ));
     private static List<Livro> livrosEmprestados = new ArrayList<>();
     public static List<Livro> getRepositorioDeLivros() {

@@ -23,7 +23,7 @@ public class LivroControlador {
                         "\nPegar emprestado um livro: pressione 3" +
                         "\nDevolver um livro que havia sido pego emprestado: pressione 4" +
                         "\nBuscar um livro: pressione 5" +
-                        "\nEncerrar o programa: pressione 7");
+                        "\nEncerrar o programa: pressione 6");
 
                 int i = teclado.nextInt();
                 teclado.nextLine();
