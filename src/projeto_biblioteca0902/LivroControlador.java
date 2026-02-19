@@ -78,7 +78,7 @@ public class LivroControlador {
                     } else if (op == 3) {
                         System.out.println("Qual livro deseja buscar? ");
                         Long buscaLivro = teclado.nextLong();
-                        buscaId(buscaLivro,Livro::getId);
+                        busca(buscaLivro,Livro::getId);
                     } else if (op == 4) {
                         System.out.println("Data de lancamento: ");
                         System.out.println("Dia: ");

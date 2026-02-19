@@ -37,17 +37,13 @@ public class LivroService{
         }
     }
 
-    static <R> void busca(String busca, BuscaLivro<R> buscaLivro) {
-        String buscaCap = capitalize(busca);
-        if (getRepositorioDeLivros().stream().anyMatch(livro -> buscaLivro.busca(livro).equals(buscaCap))) {
-            getRepositorioDeLivros().stream().filter(livro -> buscaLivro.busca(livro).equals(buscaCap)).forEach(System.out::println);
-        } else {
-            System.out.println("Este livro não esta catalogado");
+    static <T,R> void busca(T busca, BuscaLivro<R> buscaLivro) {
+        if(busca.getClass().getName().equals("java.lang.String")){
+            busca = (T) capitalize((String) busca);
         }
-    }
-    static <R> void buscaId(Long busca, BuscaLivro<R> buscaLivro) {
-        if (getRepositorioDeLivros().stream().anyMatch(livro -> buscaLivro.busca(livro).equals(busca))) {
-            getRepositorioDeLivros().stream().filter(livro -> buscaLivro.busca(livro).equals(busca)).forEach(System.out::println);
+        T finalBusca = busca;
+        if (getRepositorioDeLivros().stream().anyMatch(livro -> buscaLivro.busca(livro).equals(finalBusca))) {
+            getRepositorioDeLivros().stream().filter(livro -> buscaLivro.busca(livro).equals(finalBusca)).forEach(System.out::println);
         } else {
             System.out.println("Este livro não esta catalogado");
         }
