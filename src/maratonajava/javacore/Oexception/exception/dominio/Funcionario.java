@@ -2,7 +2,7 @@ package maratonajava.javacore.Oexception.exception.dominio;
 
 public class Funcionario extends Pessoa{
     public void salvar() throws LoginInvalidoException{
-        /*O metodo salvar, proveniente da classe Pessoa, quando é
+        /*O metodo salvar, proveniente da classe Person, quando é
         sobrescrito, não obriga a colocar o lançamento das exceções
         que estão no metodo original de pessoa.*/
 
