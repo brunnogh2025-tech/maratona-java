@@ -33,7 +33,9 @@ public class Person {
 
         public PersonBuilder() {
         }
-
+        public static PersonBuilder builder() {
+            return new PersonBuilder();
+        }
         public PersonBuilder firstName(String firstName) {
             this.firstName = firstName;
             return this;

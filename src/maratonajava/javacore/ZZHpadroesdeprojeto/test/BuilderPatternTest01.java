@@ -4,7 +4,8 @@ import maratonajava.javacore.ZZHpadroesdeprojeto.dominio.Person;
 
 public class BuilderPatternTest01 {
     static void main(String[] args) {
-        Person build =new Person.PersonBuilder()
+        Person build = Person.PersonBuilder
+                .builder()
                 .firstName("William")
                 .lastName("Suane")
                 .userName("viradonojiraya")
