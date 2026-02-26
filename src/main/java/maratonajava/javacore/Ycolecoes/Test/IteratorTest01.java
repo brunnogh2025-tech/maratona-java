@@ -3,7 +3,6 @@ package maratonajava.javacore.Ycolecoes.Test;
 import maratonajava.javacore.Ycolecoes.dominio.Manga;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class IteratorTest01 {

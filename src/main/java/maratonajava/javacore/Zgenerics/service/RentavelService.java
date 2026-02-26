@@ -1,8 +1,5 @@
 package maratonajava.javacore.Zgenerics.service;
 
-import maratonajava.javacore.Zgenerics.dominio.Carro;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class RentavelService<T>{

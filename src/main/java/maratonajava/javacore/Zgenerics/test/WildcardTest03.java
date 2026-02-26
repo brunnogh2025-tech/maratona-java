@@ -1,8 +1,5 @@
 package maratonajava.javacore.Zgenerics.test;
 
-import maratonajava.javacore.Oexception.exception.dominio.Leitor1;
-import maratonajava.javacore.Ycolecoes.dominio.Manga;
-
 import java.util.ArrayList;
 import java.util.List;
 

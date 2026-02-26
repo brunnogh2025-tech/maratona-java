@@ -1,7 +1,5 @@
 package maratonajava.javacore.ZZHpadroesdeprojeto.test;
 
-import maratonajava.javacore.ZZHpadroesdeprojeto.dominio.Aircraft;
-
 public class AircraftSingletonTest01 {
     static void main(String[] args) {
         bookSeat("1A");

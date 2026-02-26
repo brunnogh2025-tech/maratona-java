@@ -3,7 +3,6 @@ package maratonajava.javacore.ZZAclasseinternas.test;
 import maratonajava.javacore.Zgenerics.dominio.Barco;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 class BarcoNameCompartator implements Comparator<Barco>{

@@ -2,8 +2,6 @@ package maratonajava.javacore.Ycolecoes.Test;
 
 import maratonajava.javacore.Ycolecoes.dominio.Manga;
 
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

@@ -4,7 +4,6 @@ import maratonajava.javacore.ZZFstreams.dominio.LightNovel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class StreamTest08 {
     private static List<LightNovel> lightNovels = new ArrayList<>(List.of(

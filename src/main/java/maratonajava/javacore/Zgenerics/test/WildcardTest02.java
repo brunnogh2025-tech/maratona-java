@@ -1,6 +1,5 @@
 package maratonajava.javacore.Zgenerics.test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WildcardTest02 {
