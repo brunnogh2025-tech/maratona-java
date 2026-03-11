@@ -1,5 +1,16 @@
 package maratonajava.javacore.ZZIjdbc.conn;
 
-public class ConnectionFactory {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
+public class ConnectionFactory {
+    public static Connection getConnection() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/anime_store";
+        String username = "root";
+        String password = "G!tHu825";
+        return DriverManager.getConnection(url, username, password);
+
+
+    }
 }
