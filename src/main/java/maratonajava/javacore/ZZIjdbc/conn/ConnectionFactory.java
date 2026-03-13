@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
     public static Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/anime_store";
+        String url = "jdbc:mysql://localhost:3307/anime_store";
         String username = "root";
         String password = "G!tHu825";
         return DriverManager.getConnection(url, username, password);

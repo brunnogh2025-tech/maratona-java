@@ -23,6 +23,17 @@ public class ProducerService {
     public static List<Producer> findAll() {
         return ProducerRepository.findAll();
     }
+
+    public static List<Producer> findByName(String name) {return ProducerRepository.findByName(name);}
+
+    public static void showProducerMetaData(){
+        ProducerRepository.showProducerMetaData();
+    }
+
+    public static void showDriverMetaData(){
+        ProducerRepository.showDriverMetaData();
+    }
+
     private static void requiredValidId(Integer id){
         if (id <= 0 || id == null){
             throw new IllegalArgumentException("Invalid value for ID");
